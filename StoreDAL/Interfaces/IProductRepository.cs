@@ -6,6 +6,5 @@ namespace StoreDAL.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-
     }
 }
