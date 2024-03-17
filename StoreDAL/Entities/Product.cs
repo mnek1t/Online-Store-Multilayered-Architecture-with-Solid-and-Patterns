@@ -8,16 +8,21 @@ using System.Threading.Tasks;
 
 namespace StoreDAL.Entities
 {
-    // ToDo: add atribute here
+    [Table("products")]
     public class Product:BaseEntity
     {
-        // ToDo: add atribute here
+        [Column("product_title_id")]
+        [ForeignKey("ProductTitle")]
         public int TitleId { get; set; }
-        // ToDo: add atribute here
+
+        [Column("manufacturer_id")]
+        [ForeignKey("Manufacturer")]
         public int ManufacturerId { get; set; }
-        // ToDo: add atribute here
+
+        [Column("unit_price")]
         public decimal UnitPrice { get; set; }
-        // ToDo: add atribute here
+
+        [Column("column")]
         public string Description { get; set; }
         public ProductTitle Title { get; set; }
         public Manufacturer Manufacturer { get; set; }

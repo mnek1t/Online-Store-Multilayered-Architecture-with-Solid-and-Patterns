@@ -1,18 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StoreDAL.Entities
 {
-    // ToDo: add atribute here
+    [Table("customer_order_details")]
     public class OrderDetail : BaseEntity
     {
-        // ToDo: add atribute here
+        [Column("customer_order_id")]
+        [ForeignKey("CustomerOrder")]
         public int OrderId { get; set; }
-        // ToDo: add atribute here
+
+        [Column("product_id")]
+        [ForeignKey("Product")]
         public int ProductId { get; set; }
-        // ToDo: add atribute here
+
+        [Column("price")]
         public decimal Price { get; set; }
-        // ToDo: add atribute here
+
+        [Column("product_amount")]
         public int ProductAmount { get; set; }
         public CustomerOrder Order { get; set; }
         public Product Product { get; set; }
