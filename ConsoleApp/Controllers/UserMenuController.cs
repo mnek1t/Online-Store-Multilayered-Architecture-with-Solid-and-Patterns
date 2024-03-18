@@ -71,7 +71,6 @@ public static class UserMenuController
             resKey = rolesToMenu[userRole].RunOnce(ref updateItems);
         } while (resKey != ConsoleKey.Escape);
 
-
     }
 }
 
