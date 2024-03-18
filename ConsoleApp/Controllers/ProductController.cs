@@ -1,5 +1,4 @@
 ﻿using ConsoleApp1;
-using StoreBLL.Services;
 using StoreDAL.Data;
 using System;
 using System.Collections.Generic;
@@ -32,8 +31,7 @@ namespace ConsoleApp.Controllers
         }
         public static void ShowAllProducts()
         {
-            ProductService service = new ProductService(context);
-            service.GetAll();
+            throw new NotImplementedException();
         }
 
         public static void AddCategory()
