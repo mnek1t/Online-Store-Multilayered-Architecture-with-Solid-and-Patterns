@@ -21,6 +21,8 @@ namespace StoreDAL.Repository
         }
         public void Add(User entity)
         {
+            var maxId = dbSet.Max(e => e.Id);
+            entity.Id = maxId + 1;
             string hashedPassword = EncryptPassword(entity.Password);
             entity.Password = hashedPassword;
 
