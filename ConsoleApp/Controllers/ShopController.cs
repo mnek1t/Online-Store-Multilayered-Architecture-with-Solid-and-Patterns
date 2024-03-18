@@ -67,7 +67,7 @@ namespace ConsoleApp.Services
        public static void ShowAllOrderStates()
         {
             var service = new OrderStateService(context);
-            var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.ReadOrderStateModel), service.GetAll);
+            var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.ReadProductModel), service.GetAll);
             menu.Run();
         }
 

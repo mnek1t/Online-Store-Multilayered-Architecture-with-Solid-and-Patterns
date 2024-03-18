@@ -1,9 +1,11 @@
 ﻿using StoreBLL.Models;
+using StoreDAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp.Helpers
 {
@@ -40,9 +42,31 @@ namespace ConsoleApp.Helpers
             Console.WriteLine("Input State Name");
             var name = Console.ReadLine();
             return new OrderStateModel(id,name);
-            //throw new NotImplementedException();
         }
-
+        public static ProductModel ReadProductModel() 
+        {
+            Console.WriteLine("Input User Role Id");
+            var id = int.Parse(Console.ReadLine());
+            ProductTitleModel productTitleModel = ReadProductTitleModel();
+            Console.WriteLine("Input Description");
+            var description = Console.ReadLine();
+            Console.WriteLine("Input Price");
+            var price = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Input Manufacturer Id");
+            var manufacturer = int.Parse(Console.ReadLine());
+            
+            return new ProductModel(id, productTitleModel.Id, manufacturer, description,price);
+        }
+        public static ProductTitleModel ReadProductTitleModel() 
+        {
+            Console.WriteLine("Input Product Title Id");
+            var id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Input Product Name");
+            var name = Console.ReadLine();
+            Console.WriteLine("Input Category");
+            var category = int.Parse(Console.ReadLine());
+            return new ProductTitleModel(id, name, category);
+        }
         public static UserRoleModel ReadUserRoleModel()
         {
             Console.WriteLine("Input User Role Id");
