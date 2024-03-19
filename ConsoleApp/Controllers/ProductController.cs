@@ -39,9 +39,9 @@ namespace ConsoleApp.Controllers
         public static void ShowAllProducts()
         {
             var service = new ProductService(context);
-            var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.Reaf), service.GetAll);
-            menu.Run();
-            ProductService service = new ProductService(context);
+            //var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.Reaf), service.GetAll);
+            //menu.Run();
+            //ProductService service = new ProductService(context);
             service.GetAll();
         }
 
