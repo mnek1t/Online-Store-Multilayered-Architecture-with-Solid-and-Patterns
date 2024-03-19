@@ -23,7 +23,7 @@ namespace ConsoleApp.Helpers
             var roleId = 2;
             return new UserModel(id, firstName, lastName, login, password, roleId);
         }
-        public static CategoryModel ReadCategoryiModel()
+        public static CategoryModel ReadCategoryModel()
         {
             throw new NotImplementedException();
         }
