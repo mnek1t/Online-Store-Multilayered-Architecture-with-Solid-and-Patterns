@@ -8,7 +8,7 @@ namespace StoreBLL.Models
     {
         public CategoryModel(int id, string name):base(id) 
         {
-
+            
         }
         public override string ToString()
         {

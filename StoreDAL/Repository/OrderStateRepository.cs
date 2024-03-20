@@ -55,7 +55,18 @@ namespace StoreDAL.Repository
 
         public void Update(OrderState entity)
         {
-            throw new NotImplementedException();
+            var orderStatus = dbSet.Find(entity.Id);
+            if (orderStatus == null)
+                Add(orderStatus);
+            else
+            {
+                dbSet.Remove(orderStatus);
+                context.SaveChanges();
+                orderStatus.Order = entity.Order;
+                orderStatus.StateName = entity.StateName;
+                dbSet.Add(orderStatus);
+                context.SaveChanges();
+            }
         }
     }
 }
