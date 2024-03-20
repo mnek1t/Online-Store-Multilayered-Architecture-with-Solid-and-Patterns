@@ -12,7 +12,6 @@ namespace ConsoleApp.Handlers.ContextMenu
     {
         public AdminContextMenuHandler(ICrud service, Func<AbstractModel> readModel):base(service,readModel)
         {
-
         }
 
         public void AddItem()

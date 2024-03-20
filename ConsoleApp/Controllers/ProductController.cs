@@ -1,4 +1,7 @@
-﻿using ConsoleApp1;
+﻿using ConsoleApp.Handlers.ContextMenu;
+using ConsoleApp.Helpers;
+using ConsoleApp1;
+using ConsoleMenu;
 using StoreBLL.Services;
 using StoreDAL.Data;
 using System;
@@ -14,7 +17,10 @@ namespace ConsoleApp.Controllers
         private static StoreDbContext context=UserMenuController.Context;
         public static void AddProduct()
         {
-            throw new NotImplementedException();
+            var service = new ProductService(context);
+            var model = InputHelper.ReadProductModel();
+            //var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.ReadProductModel), service.Add);
+            //menu.Run();
         }
         public static void UpdateProduct()
         {
@@ -32,7 +38,10 @@ namespace ConsoleApp.Controllers
         }
         public static void ShowAllProducts()
         {
-            ProductService service = new ProductService(context);
+            var service = new ProductService(context);
+            //var menu = new ContextMenu(new AdminContextMenuHandler(service, InputHelper.Reaf), service.GetAll);
+            //menu.Run();
+            //ProductService service = new ProductService(context);
             service.GetAll();
         }
 

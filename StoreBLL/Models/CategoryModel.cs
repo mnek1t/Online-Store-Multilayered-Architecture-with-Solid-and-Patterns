@@ -8,11 +8,13 @@ namespace StoreBLL.Models
     {
         public CategoryModel(int id, string name):base(id) 
         {
-            
+            this.Id = id;
+            this.Name = name;
         }
+        public string Name { get; set; }
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Id:{Id} {Name}";
         }
     }
 }
