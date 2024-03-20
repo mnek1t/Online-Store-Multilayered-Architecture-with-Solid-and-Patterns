@@ -55,7 +55,7 @@ namespace StoreDAL.Data.InitDataFactory
             return new[] 
             {
                 new OrderDetail(1,1,21,3.39m,2),
-                new OrderDetail(1,2,8,6.00m,5)
+                new OrderDetail(2,2,8,6.00m,5)
             };
         }
 

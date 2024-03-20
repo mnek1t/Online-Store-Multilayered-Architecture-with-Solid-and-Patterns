@@ -9,6 +9,20 @@ namespace ConsoleApp.Helpers
 {
     internal static class InputHelper
     {
+        public static UserModel ReadRegistration()
+        {
+            var id = 0;
+            Console.WriteLine("Input first name");
+            var firstName = Console.ReadLine();
+            Console.WriteLine("Input last name");
+            var lastName = Console.ReadLine();
+            Console.WriteLine("Input login");
+            var login = Console.ReadLine();
+            Console.WriteLine("Input login");
+            var password = Console.ReadLine();
+            var roleId = 2;
+            return new UserModel(id, firstName, lastName, login, password, roleId);
+        }
         public static CategoryModel ReadCategoryiModel()
         {
             throw new NotImplementedException();

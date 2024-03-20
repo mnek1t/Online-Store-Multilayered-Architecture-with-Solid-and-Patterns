@@ -1,4 +1,7 @@
-﻿using StoreDAL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using StoreDAL.Data;
+using StoreDAL.Data.InitDataFactory;
+using StoreDAL.Entities;
 using StoreDAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,41 +11,69 @@ using System.Threading.Tasks;
 
 namespace StoreDAL.Repository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : AbstractRepository, IProductRepository
     {
+        private readonly DbSet<Product> dbSet;
+        public ProductRepository(StoreDbContext context) : base(context)
+        {
+            dbSet = context.Set<Product>();
+        }
         public void Add(Product entity)
         {
-            throw new NotImplementedException();
+            dbSet.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            dbSet.Remove(entity);
+            context.SaveChanges();
         }
 
         public void DeleteById(int id)
         {
-            throw new NotImplementedException();
+            var entity = dbSet.Find(id);
+            if (entity != null)
+            {
+                dbSet.Remove(entity);
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return dbSet.ToList();
         }
 
         public IEnumerable<Product> GetAll(int pageNumber, int rowCount)
         {
-            throw new NotImplementedException();
+            return dbSet.Take(rowCount).ToList();
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return dbSet.Find(id);
         }
 
         public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            var product = dbSet.Find(entity.Id);
+            if (product == null)
+                Add(product);
+            else
+            {
+                dbSet.Remove(product);
+                context.SaveChanges();
+                product.Manufacturer = entity.Manufacturer;
+                product.ManufacturerId = entity.ManufacturerId;
+                product.UnitPrice = entity.UnitPrice;
+                product.OrderDetails = entity.OrderDetails;
+                product.Description = entity.Description;
+                product.Title = entity.Title;
+                product.TitleId = entity.TitleId;
+                dbSet.Add(product);
+                context.SaveChanges();
+            }
         }
     }
 }

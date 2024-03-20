@@ -19,7 +19,8 @@ namespace ConsoleApp.Services
         private static StoreDbContext context = UserMenuController.Context;
         public static void AddUser()
         {
-            throw new NotImplementedException();
+            var service = new UserService(context);
+            service.Add(InputHelper.ReadRegistration());
         }
         public static void UpdateUser()
         {
