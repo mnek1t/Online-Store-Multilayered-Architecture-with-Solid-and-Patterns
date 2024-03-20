@@ -9,9 +9,8 @@ namespace StoreBLL.Models
     {
         public ManufacturerModel(int id, string name):base(id)
         {
-
+            
         }
-
         public override string ToString()
         {
             throw new NotImplementedException();
